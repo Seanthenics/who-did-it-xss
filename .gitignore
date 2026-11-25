@@ -1,0 +1,6 @@
+# Local config / editor junk
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

